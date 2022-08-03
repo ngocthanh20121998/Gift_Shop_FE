@@ -1,0 +1,101 @@
+<html>
+
+<head>
+
+  <style>
+    .order {
+      width: 60%;
+      margin: 0 auto;
+      background: #f2f2f2;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .table {
+      width: 100%;
+    }
+
+    .table th, .table tr {
+      margin: 1rem
+    }
+
+    p {
+      margin: 5px 0 5px 15px
+    }
+  </style>
+</head>
+
+<body>
+  <div class="order">
+    <div>
+      <span><b>Mã đơn hàng:</b></span>
+      <span style="color:#ff5f5f"> {{orderID}} </span>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="text-align: left;">Tên sản phẩm</th>
+          <th scope="col" style="width: 120px">Số lượng</th>
+          <th scope="col" style="width: 120px">Giá</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#product}}
+        <tr>
+          <td>
+            {{ productName }}
+          </td>
+          <td style="text-align: center"> {{ quantity }} </td>
+          <td style="text-align: center"> {{ price }}đ</td>
+        </tr>
+        {{/product}}
+      </tbody>
+    </table>
+    <hr />
+    <div style="display: flex;">
+      <div style="width: 60%">
+        <div>
+          <b>Phương thức thanh toán:</b>
+          <p style="color: #ff5f5f;"> {{ payment }} </p>
+        </div>
+        <div>
+          <b>Địa chỉ giao hàng:</b>
+          <p class="ml-3" style="color: #ff5f5f;">
+            {{ address }}
+          </p>
+        </div>
+        <div>
+          <b>Số điện thoại</b>
+          <p class="ml-3" style="color: #ff5f5f; ">
+            {{ phone }}
+          </p>
+        </div>
+      </div>
+      <div style="width: 40%">
+        <b>Tổng tiền</b>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <p><b>Tạm tính:</b></p>
+            <p><b>Phí vận chuyển:</b></p>
+            <p>
+              <b>Tổng cộng:</b>
+            </p>
+          </div>
+          <div style="float: right">
+            <p style="color: #ff5f5f">
+              {{ totalBefore }}đ
+            </p>
+            <p style="color: #ff5f5f"> 30,000đ</p>
+            <p>
+            <p style="color: #ff5f5f; "> {{ total }}đ</p>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
